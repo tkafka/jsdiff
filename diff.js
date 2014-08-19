@@ -155,7 +155,7 @@ var JsDiff = (function() {
   var WordDiff = new Diff(true);
   var WordWithSpaceDiff = new Diff();
   WordDiff.tokenize = WordWithSpaceDiff.tokenize = function(value) {
-    return removeEmpty(value.split(/(\s+|\b)/));
+    return removeEmpty(value.split(/(\s+|,|\.|\?|!|:|;)/)); // was /(\s+|\b)/, but this split text on international characters too
   };
 
   var CssDiff = new Diff(true);
